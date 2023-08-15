@@ -7,9 +7,9 @@ namespace UnityExplorer.UI.Panels
 {
     public class MouseInspectorResultsPanel : UEPanel
     {
-        public override UIManager.Panels PanelType => UIManager.Panels.UIInspectorResults;
+        public override UIManager.Panels PanelType => UIManager.Panels.MouseInspectorResults;
 
-        public override string Name => "UI Inspector Results";
+        public override string Name => "Mouse Inspector Results";
 
         public override int MinWidth => 500;
         public override int MinHeight => 500;
@@ -34,24 +34,24 @@ namespace UnityExplorer.UI.Panels
             buttonScrollPool.Refresh(true, true);
         }
 
-        private List<GameObject> GetEntries() => UiInspector.LastHitObjects;
+        private List<GameObject> GetEntries() => MouseInspectorBase.LastHitObjects;
 
         private bool ShouldDisplayCell(object cell, string filter) => true;
 
         private void OnCellClicked(int index)
         {
-            if (index >= UiInspector.LastHitObjects.Count)
+            if (index >= MouseInspectorBase.LastHitObjects.Count)
                 return;
 
-            InspectorManager.Inspect(UiInspector.LastHitObjects[index]);
+            InspectorManager.Inspect(MouseInspectorBase.LastHitObjects[index]);
         }
 
         private void SetCell(ButtonCell cell, int index)
         {
-            if (index >= UiInspector.LastHitObjects.Count)
+            if (index >= MouseInspectorBase.LastHitObjects.Count)
                 return;
 
-            GameObject obj = UiInspector.LastHitObjects[index];
+            GameObject obj = MouseInspectorBase.LastHitObjects[index];
             cell.Button.ButtonText.text = $"<color=cyan>{obj.name}</color> ({obj.transform.GetTransformPath(true)})";
         }
 

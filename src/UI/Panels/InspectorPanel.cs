@@ -51,8 +51,9 @@ namespace UnityExplorer.UI.Panels
             GameObject mouseDropdown = UIFactory.CreateDropdown(closeHolder, "MouseInspectDropdown", out MouseInspectDropdown, "Mouse Inspect", 14,
                 MouseInspector.OnDropdownSelect);
             UIFactory.SetLayoutElement(mouseDropdown, minHeight: 25, minWidth: 140);
-            MouseInspectDropdown.options.Add(new Dropdown.OptionData("Mouse Inspect"));
+            MouseInspectDropdown.options.Add(new Dropdown.OptionData("[Mouse Inspect]"));
             MouseInspectDropdown.options.Add(new Dropdown.OptionData("World"));
+            MouseInspectDropdown.options.Add(new Dropdown.OptionData("World2D"));
             MouseInspectDropdown.options.Add(new Dropdown.OptionData("UI"));
             mouseDropdown.transform.SetSiblingIndex(0);
 

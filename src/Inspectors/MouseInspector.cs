@@ -11,6 +11,7 @@ namespace UnityExplorer.Inspectors
     public enum MouseInspectMode
     {
         World,
+        World2D,
         UI
     }
 
@@ -19,6 +20,7 @@ namespace UnityExplorer.Inspectors
         public static MouseInspector Instance { get; private set; }
 
         private readonly WorldInspector worldInspector;
+        private readonly World2DInspector world2DInspector;
         private readonly UiInspector uiInspector;
 
         public static bool Inspecting { get; set; }
@@ -28,6 +30,7 @@ namespace UnityExplorer.Inspectors
         {
             MouseInspectMode.UI => uiInspector,
             MouseInspectMode.World => worldInspector,
+            MouseInspectMode.World2D => world2DInspector,
             _ => null,
         };
 
@@ -53,6 +56,7 @@ namespace UnityExplorer.Inspectors
         {
             Instance = this;
             worldInspector = new WorldInspector();
+            world2DInspector = new World2DInspector();
             uiInspector = new UiInspector();
         }
 
@@ -62,7 +66,8 @@ namespace UnityExplorer.Inspectors
             {
                 case 0: return;
                 case 1: Instance.StartInspect(MouseInspectMode.World); break;
-                case 2: Instance.StartInspect(MouseInspectMode.UI); break;
+                case 2: Instance.StartInspect(MouseInspectMode.World2D); break;
+                case 3: Instance.StartInspect(MouseInspectMode.UI); break;
             }
             InspectorPanel.Instance.MouseInspectDropdown.value = 0;
         }
@@ -201,8 +206,10 @@ namespace UnityExplorer.Inspectors
 
             mousePosLabel = UIFactory.CreateLabel(inspectContent, "MousePosLabel", "Mouse Position:", TextAnchor.MiddleCenter);
 
-            objNameLabel = UIFactory.CreateLabel(inspectContent, "HitLabelObj", "No hits...", TextAnchor.MiddleLeft);
+            objNameLabel = UIFactory.CreateLabel(inspectContent, "HitLabelObj", "No hits...");
             objNameLabel.horizontalOverflow = HorizontalWrapMode.Overflow;
+            objNameLabel.verticalOverflow = VerticalWrapMode.Overflow;
+            objNameLabel.alignment = TextAnchor.UpperLeft;
 
             objPathLabel = UIFactory.CreateLabel(inspectContent, "PathLabel", "", TextAnchor.MiddleLeft);
             objPathLabel.fontStyle = FontStyle.Italic;

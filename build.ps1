@@ -153,3 +153,5 @@ Copy-Item $Path1/UnityExplorer.STANDALONE.Mono.dll -Destination $Path2
 Copy-Item $Path1/UniverseLib.Mono.dll -Destination $Path2
 Remove-Item Release/UnityExplorer.Editor.zip -ErrorAction SilentlyContinue
 7z a Release/UnityExplorer.Editor.zip .\UnityEditorPackage\*
+
+Read-Host -Prompt "Press Enter to exit"

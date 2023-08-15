@@ -7,8 +7,6 @@ namespace UnityExplorer.Inspectors.MouseInspectors
 {
     public class UiInspector : MouseInspectorBase
     {
-        public static readonly List<GameObject> LastHitObjects = new();
-
         private static GraphicRaycaster[] graphicRaycasters;
 
         private static readonly List<GameObject> currentHitObjects = new();
@@ -38,7 +36,7 @@ namespace UnityExplorer.Inspectors.MouseInspectors
         IEnumerator SetPanelActiveCoro()
         {
             yield return null;
-            MouseInspectorResultsPanel panel = UIManager.GetPanel<MouseInspectorResultsPanel>(UIManager.Panels.UIInspectorResults);
+            MouseInspectorResultsPanel panel = UIManager.GetPanel<MouseInspectorResultsPanel>(UIManager.Panels.MouseInspectorResults);
             panel.SetActive(true);
             panel.ShowResults();
         }

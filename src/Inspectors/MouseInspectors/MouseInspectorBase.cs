@@ -2,6 +2,8 @@
 {
     public abstract class MouseInspectorBase
     {
+        public static readonly List<GameObject> LastHitObjects = new();
+
         public abstract void OnBeginMouseInspect();
 
         public abstract void UpdateMouseInspect(Vector2 mousePos);

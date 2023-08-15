@@ -19,7 +19,7 @@ namespace UnityExplorer.UI
             Options,
             ConsoleLog,
             AutoCompleter,
-            UIInspectorResults,
+            MouseInspectorResults,
             HookManager,
             Clipboard,
             Freecam
@@ -93,7 +93,7 @@ namespace UnityExplorer.UI
             UIPanels.Add(Panels.Clipboard, new ClipboardPanel(UiBase));
             UIPanels.Add(Panels.ConsoleLog, new LogPanel(UiBase));
             UIPanels.Add(Panels.Options, new OptionsPanel(UiBase));
-            UIPanels.Add(Panels.UIInspectorResults, new MouseInspectorResultsPanel(UiBase));
+            UIPanels.Add(Panels.MouseInspectorResults, new MouseInspectorResultsPanel(UiBase));
 
             MouseInspector.inspectorUIBase = UniversalUI.RegisterUI(MouseInspector.UIBaseGUID, null);
             new MouseInspector(MouseInspector.inspectorUIBase);
