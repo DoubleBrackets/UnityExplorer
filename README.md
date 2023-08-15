@@ -1,3 +1,6 @@
+This is a fork for adding 2D support to the mouse inspector (lol)
+
+
 <p align="center">
   <img align="center" src="img/icon.png">
 </p>
